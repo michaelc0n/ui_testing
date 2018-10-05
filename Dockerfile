@@ -19,9 +19,9 @@ WORKDIR /home/seluser
 
 COPY selenium_load_page.py ./
 
-RUN apt-get -y update && apt-get install -y --no-install-recommends python3.6 && \
-    wget https://bootstrap.pypa.io/get-pip.py \
-    python3 get-pip.py && python3 -m pip install -no-cache-dir selenium==3.14.1 && \
+RUN apt-get -y update && apt-get install -y --no-install-recommends python3 && \
+    #wget https://bootstrap.pypa.io/get-pip.py \
+    pip3 install -no-cache-dir selenium==3.14.1 && \
     #pip3.6 install --no-cache-dir selenium==3.14.1 && \
 #RUN pip3.6 install --no-cache-dir selenium==3.14.1 && \
 # Cleanup to make image small
