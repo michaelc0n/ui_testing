@@ -1,1 +1,0 @@
-TODO: add testcase examples of Python Selenium scripts
