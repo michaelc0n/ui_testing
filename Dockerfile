@@ -20,14 +20,11 @@ WORKDIR /home/seluser
 COPY selenium_load_page.py ./
 
 # install selenium python sdk
-RUN apt-get -y update && apt-get install -y --no-install-recommends curl inetutils-ping && \
-    apt-get install -y --no-install-recommends python python-pip && \
-
-# Download seleinum page load test scripts
-    pip install selenium==3.14.1 && \
-
+RUN apt-get -y update && apt-get install -y --no-install-recommends python36u python36u-pip && \
+    pip3.6 install --no-cache-dir selenium==3.14.1 && \
+#RUN pip3.6 install --no-cache-dir selenium==3.14.1 && \
 # Cleanup to make image small
-    apt-get -y remove && apt-get -y autoremove && rm -rf /var/cache/apk/*
+    apt-get -y remove && apt-get -y autoremove && rm -rf /var/cache/apk/* && rm -r /root/.cache
 
 RUN chown -R seluser:seluser ./
 
