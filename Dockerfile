@@ -1,15 +1,13 @@
-########## How To Use Docker Image ###############
+########## HOW TO ###############
 ##
 ##  Start container:
 ##    mkdir -p /tmp/screenshot && chmod 777 /tmp/screenshot
 ##    docker run -d -p 4444:4444 -v /tmp/screenshot:/tmp/screenshot -h selenium --name selenium michaelc0n/python-selenium:1.0
 ##
 ##  Run seleinum test
-##    docker exec selenium python /home/seluser/selenium_load_page.py --page_url http://devnetstack.com --should_save_screenshot
+##    docker exec selenium python3 selenium_load_page.py --page_url http://devnetstack.com --should_save_screenshot
 ##
-##################################################
-
-# Base image: https://hub.docker.com/r/selenium/standalone-chrome/
+#################################
 
 FROM selenium/standalone-chrome:latest
 
@@ -26,6 +24,3 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends python3 pyth
 RUN chown -R seluser:seluser ./
 
 USER seluser
-
-### add testing at runtime:
-CMD python3 selenium_load_page.py --page_url http://devnetstack.com/ --should_save_screenshot
