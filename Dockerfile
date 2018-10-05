@@ -13,7 +13,7 @@
 
 FROM selenium/standalone-chrome:latest
 
-RUN adduser -d seluser
+RUN adduser --disabled-login seluser
 
 WORKDIR /home/seluser
 
