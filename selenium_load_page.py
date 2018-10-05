@@ -1,33 +1,18 @@
-#!/usr/bin/python
-##-------------------------------------------------------------------
-## @copyright 2017 DennyZhang.com
-## Licensed under MIT
-##   https://www.dennyzhang.com/wp-content/mit_license.txt
-##
-## File : selenium_load_page.py
-## Author : 
-## Description :
-##    Test page loading with selenium: slow load, severe 
-##              errors when launching network requests, and save screenshots as images.
-##
-## More reading: https://www.dennyzhang.com/selenium_docker
-##
+##########################################################################
+## Test page loading with Selenium:
+##    - slow loading
+##    - errors // save screenshot image
 ## Sample:
-##   - Test page load: basic test
-##        python ./selenium_load_page.py --page_url https://www.dennyzhang.com
+##    - Test page load:
+##        python3 ./selenium_load_page.py --page_url http://devnetstack.com
 ##
-##   - Test page load: if it takes more than 5 seconds, fail the test. Default timeout is 10 seconds
-##        python ./selenium_load_page.py --page_url https://www.dennyzhang.com --max_load_seconds 5
+##    - Test page load: if it takes more than 5 seconds, fail the test. Default timeout is 10 seconds
+##        python3 ./selenium_load_page.py --page_url http://devnetstack.com --max_load_seconds 5
 ##
-##   - Test page load: after page loading, save screenshot
-##        python ./selenium_load_page.py --page_url https://www.dennyzhang.com --should_save_screenshot true
-##
-## --
-## Created : <2017-02-24>
-## Updated: Time-stamp: <2017-04-24 13:12:44>
-##-------------------------------------------------------------------
+##    - Test page load: after page loading, save screenshot
+##        python3 ./selenium_load_page.py --page_url http://devnetstack.com --should_save_screenshot true
+############################################################################
 import sys, argparse
-
 from datetime import datetime
 import time
 from selenium import webdriver
@@ -45,9 +30,6 @@ def load_page(page_url, remote_server, max_load_seconds, \
     try:
         # Cleanup cache
         driver.delete_all_cookies()
-
-        # driver.set_page_load_timeout(load_timeout)
-
         print("Open page: %s" % (page_url))
         start_clock = time.clock()
         driver.get(page_url)
@@ -119,4 +101,3 @@ if __name__ == '__main__':
                       screenshot_dir, should_save_screenshot)
     if is_ok is False:
         sys.exit(1)
-## File : selenium_load_page.py ends
