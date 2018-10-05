@@ -27,7 +27,7 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends curl inetuti
     pip install selenium==3.14.1 && \
 
 # Cleanup to make image small
-    apt-get -y remove && apt-get -y autoremove && rm -rf /var/cache/apk/* && \
+    apt-get -y remove && apt-get -y autoremove && rm -rf /var/cache/apk/*
 
 RUN chown -R seluser:seluser ./
 
