@@ -1,10 +1,8 @@
 ########## How To Use Docker Image ###############
 ##
-##  Image Name: denny/python-selenium:v1
-##
 ##  Start container:
 ##    mkdir -p /tmp/screenshot && chmod 777 /tmp/screenshot
-##    docker run -d -p 4444:4444 -v /tmp/screenshot:/tmp/screenshot -h selenium --name selenium denny/python-selenium:v1
+##    docker run -d -p 4444:4444 -v /tmp/screenshot:/tmp/screenshot -h selenium --name selenium michaelc0n/python-selenium:1.0
 ##
 ##  Run seleinum test
 ##    docker exec selenium python /home/seluser/selenium_load_page.py --page_url http://devnetstack.com
