@@ -12,7 +12,7 @@ docker run -d --restart=always \
 # With customized test scripts, you can do more!
 docker exec selenium \
    python /home/seluser/selenium_load_page.py \
-   --page_url https://devnetstack.com --should_save_screenshot
+   --page_url http://devnetstack.com --should_save_screenshot
 
 # Check Screenshot
 ls -lth /tmp/screenshot
