@@ -26,3 +26,6 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends python3 pyth
 RUN chown -R seluser:seluser ./
 
 USER seluser
+
+### add testing at runtime:
+CMD python3 selenium_load_page.py --page_url http://devnetstack.com/ --should_save_screenshot
