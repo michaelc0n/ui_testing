@@ -13,14 +13,15 @@
 
 FROM selenium/standalone-chrome:latest
 
-USER root
+RUN adduser -D seluser
 
-ADD selenium_load_page.py /home/seluser/selenium_load_page.py
+WORKDIR /home/seluser
+
+COPY selenium_load_page.py ./
 
 # install selenium python sdk
 RUN apt-get -y update && apt-get install -y --no-install-recommends curl inetutils-ping && \
     apt-get install -y --no-install-recommends python python-pip && \
-    chmod 777 /home/seluser/selenium_load_page.py && \
 
 # Download seleinum page load test scripts
     pip install selenium==3.14.1 && \
@@ -28,7 +29,6 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends curl inetuti
 # Cleanup to make image small
     apt-get -y remove && apt-get -y autoremove && rm -rf /var/cache/apk/* && \
 
-# Switch back to normal OS user
-USER seluser
+RUN chown -R seluser:seluser ./
 
-WORKDIR /home/seluser
+USER seluser
