@@ -13,6 +13,8 @@
 
 FROM selenium/standalone-chrome:latest
 
+USER root
+
 WORKDIR /home/seluser
 
 COPY selenium_load_page.py ./
