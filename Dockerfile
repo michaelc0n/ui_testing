@@ -13,7 +13,7 @@
 
 FROM selenium/standalone-chrome:latest
 
-RUN adduser -D seluser
+RUN adduser seluser
 
 WORKDIR /home/seluser
 
