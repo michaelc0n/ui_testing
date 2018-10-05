@@ -21,7 +21,7 @@ COPY selenium_load_page.py ./
 
 RUN apt-get -y update && apt-get install -y --no-install-recommends python3 python3-pip && \
     #wget https://bootstrap.pypa.io/get-pip.py \
-    pip3 install -no-cache-dir selenium==3.14.1 && \
+    pip3 install --no-cache-dir selenium==3.14.1 && \
     #pip3.6 install --no-cache-dir selenium==3.14.1 && \
 #RUN pip3.6 install --no-cache-dir selenium==3.14.1 && \
 # Cleanup to make image small
